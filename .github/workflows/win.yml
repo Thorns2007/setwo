@@ -69,7 +69,7 @@ jobs:
           $crdUrl = "https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi"
           $crdMsi = "$env:TEMP\crdhost.msi"
           Invoke-WebRequest -Uri $crdUrl -OutFile $crdMsi -UseBasicParsing
-          Start-Process "msiexec.exe" -ArgumentList "/i "$crdMsi" /quiet /norestart" -Wait
+          Start-Process "msiexec.exe" -ArgumentList @("/i", $crdMsi, "/quiet", "/norestart") -Wait
 
       - name: 🚀 Setup Chrome Remote Desktop
         run: |
